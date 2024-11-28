@@ -34,8 +34,16 @@ public class DialogueManager : MonoBehaviour
     //Function to update Unity constantly on the current Level and Dialogue in currentNode
     public void UpdateDialogue()
     {
-        levelTXT.text = "Nivel Actual: " + currentNode.level;
-        dialogueIF.text = currentNode?.Dialogue ?? "Empty Node";
+        if (currentNode != null)
+        {
+            levelTXT.text = "Nivel Actual: " + currentNode.level;
+            dialogueIF.text = currentNode.Dialogue;
+        } else
+        {
+            levelTXT.text = "Nivel Actual: N/A" + currentNode.level;
+            dialogueIF.text = "Empty Node";
+        }
+        Canvas.ForceUpdateCanvases();
     }
 
     //Function to fill the Dialogue in the currentNode
@@ -44,6 +52,7 @@ public class DialogueManager : MonoBehaviour
         if (currentNode != null)
         {
             currentNode.Dialogue = dialogueIF.text;
+            Debug.Log("Se ha Rellenado Exitosamente");
         }
     }
 
@@ -54,7 +63,7 @@ public class DialogueManager : MonoBehaviour
         lastNode = currentNode;
         currentNode.goodOption = new DialogueNode("Empty Good Node", level, "Good");
         currentNode = currentNode.goodOption;
-        Debug.Log("Se esta en" + currentNode.identifier + currentNode.level);
+        Debug.Log("Estas en: " + currentNode.identifier + " en el nivel: " + currentNode.level);
     }
 
     //Function for NeutralBTN Case
@@ -64,6 +73,7 @@ public class DialogueManager : MonoBehaviour
         lastNode = currentNode;
         currentNode.neutralOption = new DialogueNode("Empty Neutral Node", level, "Neutral");
         currentNode = currentNode.neutralOption;
+        Debug.Log("Estas en: " + currentNode.identifier + " en el nivel: " + currentNode.level);
     }
 
     //Function for BadBTN Case
@@ -73,12 +83,15 @@ public class DialogueManager : MonoBehaviour
         lastNode = currentNode;
         currentNode.badOption = new DialogueNode("Empty Bad Node", level, "Bad");
         currentNode = currentNode.badOption;
+        Debug.Log("Estas en: " + currentNode.identifier + " en el nivel: " + currentNode.level);
     }
 
     //Function to GoBack one Node
     public void GoBack()
     {
+        level--;
         currentNode = lastNode;
+        Debug.Log("Estas en: " + currentNode.identifier + " en el nivel: " + currentNode.level);
     }
 
     //Discarted Function to let the Player select which Level of the Tree they wanna go
