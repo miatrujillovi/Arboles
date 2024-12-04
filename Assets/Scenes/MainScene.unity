@@ -227,6 +227,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueIF: {fileID: 1936465008}
+  dialogueTXT: {fileID: 1918963556}
   levelTXT: {fileID: 175428194}
 --- !u!4 &151784523
 Transform:
@@ -276,9 +277,9 @@ RectTransform:
   m_Father: {fileID: 1054521260}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.030000001, y: 0.846}
-  m_AnchorMax: {x: 0.17875001, y: 0.91044307}
-  m_AnchoredPosition: {x: 0.05822754, y: 0.25}
-  m_SizeDelta: {x: -1.0836182, y: 1}
+  m_AnchorMax: {x: 0.20125, y: 0.91244215}
+  m_AnchoredPosition: {x: -0.23162842, y: -0.25}
+  m_SizeDelta: {x: -1.6632004, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &175428194
 MonoBehaviour:
@@ -313,7 +314,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Nivel Actual:'
+  m_Text: 'Nivel Actual: 0'
 --- !u!222 &175428195
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -734,6 +735,9 @@ MonoBehaviour:
   goodTXT: {fileID: 1153682025}
   neutralTXT: {fileID: 564529623}
   BadTXT: {fileID: 1166941889}
+  goodBTN: {fileID: 1269532082}
+  neutralBTN: {fileID: 724159057}
+  badBTN: {fileID: 1135057872}
   dialogueManager: {fileID: 151784522}
 --- !u!4 &368361834
 Transform:
@@ -1238,7 +1242,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 724159058}
   m_OnClick:
     m_PersistentCalls:
@@ -1512,42 +1516,6 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: FinishGame
         m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1269532082}
-        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-        m_MethodName: set_enabled
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 724159057}
-        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-        m_MethodName: set_enabled
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1135057872}
-        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-        m_MethodName: set_enabled
-        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1965,7 +1933,7 @@ Canvas:
   m_RenderMode: 0
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
-  m_PixelPerfect: 1
+  m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
@@ -2216,7 +2184,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1135057873}
   m_OnClick:
     m_PersistentCalls:
@@ -2586,7 +2554,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1269532083}
   m_OnClick:
     m_PersistentCalls:
@@ -2942,7 +2910,7 @@ Canvas:
   m_RenderMode: 0
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
-  m_PixelPerfect: 1
+  m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
@@ -3190,7 +3158,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1918963555
 RectTransform:
   m_ObjectHideFlags: 0

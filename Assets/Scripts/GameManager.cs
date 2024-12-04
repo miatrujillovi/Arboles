@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     //Variables for Unity Editor
     public Text dialogTXT;
     public Text goodTXT, neutralTXT, BadTXT;
+    public Button goodBTN, neutralBTN, badBTN;
 
     //Variables for the Nodes and Tree
     public DialogueNode currentNode;
@@ -26,8 +27,10 @@ public class GameManager : MonoBehaviour
         if (currentNode.goodOption != null)
         {
             currentNode = currentNode.goodOption;
+            Debug.Log("El Dialogo del Nodo es: " + currentNode.Dialogue);
             TXTAssigment();
-        } else
+        } 
+        else
         {
             FinishGame();
         }
@@ -39,8 +42,10 @@ public class GameManager : MonoBehaviour
         if (currentNode.neutralOption != null)
         {
             currentNode = currentNode.neutralOption;
+            Debug.Log("El Dialogo del Nodo es: " + currentNode.Dialogue);
             TXTAssigment();
-        } else
+        } 
+        else
         {
             FinishGame();
         }
@@ -52,8 +57,10 @@ public class GameManager : MonoBehaviour
         if (currentNode.badOption != null)
         {
             currentNode.badOption = currentNode.badOption;
+            Debug.Log("El Dialogo del Nodo es: " + currentNode.Dialogue);
             TXTAssigment();
-        } else
+        } 
+        else
         {
             FinishGame();
         }
@@ -63,13 +70,49 @@ public class GameManager : MonoBehaviour
     public void TXTAssigment()
     {
         dialogTXT.text = currentNode.Dialogue;
-        goodTXT.text = currentNode.goodOption.Dialogue;
-        neutralTXT.text = currentNode.neutralOption.Dialogue;
-        BadTXT.text = currentNode.badOption.Dialogue;
+
+        //Good Option
+        if (currentNode.goodOption != null)
+        {
+            goodBTN.interactable = true;
+            goodTXT.text = currentNode.goodOption.Dialogue;
+        }
+        else
+        {
+            goodBTN.interactable = false;
+            goodTXT.text = "";
+        }
+
+        //Neutral Option
+        if (currentNode.neutralOption != null)
+        {
+            neutralBTN.interactable = true;
+            neutralTXT.text = currentNode.neutralOption.Dialogue;
+        }
+        else
+        {
+            neutralBTN.interactable = false;
+            neutralTXT.text = "";
+        }
+
+        //Bad Option
+        if (currentNode.badOption != null)
+        {
+            badBTN.interactable = true;
+            BadTXT.text = currentNode.badOption.Dialogue;
+        } 
+        else
+        {
+            badBTN.interactable = false;
+            BadTXT.text = "";
+        }
     }
 
     public void FinishGame()
     {
         dialogTXT.text = "Advertencia: Fin del Juego";
+        goodBTN.interactable = false;
+        neutralBTN.interactable = false;
+        badBTN.interactable = false;
     }
 }

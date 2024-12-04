@@ -7,6 +7,7 @@ public class DialogueManager : MonoBehaviour
 {
     //Public References to Unity Editor
     public Text dialogueIF;
+    public Text dialogueTXT;
     public Text levelTXT;
 
     //Public Variables
@@ -37,11 +38,11 @@ public class DialogueManager : MonoBehaviour
         if (currentNode != null)
         {
             levelTXT.text = "Nivel Actual: " + currentNode.level;
-            dialogueIF.text = currentNode.Dialogue;
+            dialogueTXT.text = currentNode.Dialogue;
         } else
         {
-            levelTXT.text = "Nivel Actual: N/A" + currentNode.level;
-            dialogueIF.text = "Empty Node";
+            levelTXT.text = "Nivel Actual: N/A";
+            dialogueIF.text = "Dialogo Vacio";
         }
         Canvas.ForceUpdateCanvases();
     }
@@ -52,7 +53,7 @@ public class DialogueManager : MonoBehaviour
         if (currentNode != null)
         {
             currentNode.Dialogue = dialogueIF.text;
-            Debug.Log("Se ha Rellenado Exitosamente");
+            Debug.Log("Se ha Rellenado Exitosamente con: " + currentNode.Dialogue);
         }
     }
 
@@ -61,7 +62,8 @@ public class DialogueManager : MonoBehaviour
     {
         level++;
         lastNode = currentNode;
-        currentNode.goodOption = new DialogueNode("Empty Good Node", level, "Good");
+        currentNode.goodOption = new DialogueNode("Dialogo Bueno Vacio", level, "Good");
+        //Debug.Log("Valor de Root:" + tree.Root);
         currentNode = currentNode.goodOption;
         Debug.Log("Estas en: " + currentNode.identifier + " en el nivel: " + currentNode.level);
     }
@@ -71,7 +73,7 @@ public class DialogueManager : MonoBehaviour
     {
         level++;
         lastNode = currentNode;
-        currentNode.neutralOption = new DialogueNode("Empty Neutral Node", level, "Neutral");
+        currentNode.neutralOption = new DialogueNode("Dialogo Neutral Vacio", level, "Neutral");
         currentNode = currentNode.neutralOption;
         Debug.Log("Estas en: " + currentNode.identifier + " en el nivel: " + currentNode.level);
     }
@@ -81,7 +83,7 @@ public class DialogueManager : MonoBehaviour
     {
         level++;
         lastNode = currentNode;
-        currentNode.badOption = new DialogueNode("Empty Bad Node", level, "Bad");
+        currentNode.badOption = new DialogueNode("Dialogo Malo Vacio", level, "Bad");
         currentNode = currentNode.badOption;
         Debug.Log("Estas en: " + currentNode.identifier + " en el nivel: " + currentNode.level);
     }
